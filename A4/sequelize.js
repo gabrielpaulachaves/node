@@ -8,7 +8,7 @@ const express = require("express")
 const app = express()
 
 const Sequelize = require("sequelize")
-const sequelize = new Sequelize("sequelize", "root", "SQLgabriel2025!", {
+const sequelize = new Sequelize("sequelize", "root", ".", {
     host: "localhost",
     dialect: "mysql"
 })
