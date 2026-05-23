@@ -41,11 +41,21 @@ app.get("/", (req, res)=>{
    
 })
 
+//deletando registro no banco pelo front
+
+app.get("/delete/:id", (req, res)=>{
+                    //esse "id" precisa ter o mesmo nome da coluna id da tabela, aqui ta dizendo que o id da tabela é o id passado pelo parametro
+    post.destroy({where:{"id": req.params.id}}).then(()=>{res.send("postagem deletada")}).catch((error)=> {res.send(`erro ao deletar dado ${error}`)})
+})
+
+
+
 app.get("/cad", (req, res)=>{
     res.render("formulario")
     //res.send("rota funcionando")
     //pra fazer o codigo handlebars aparecer, digite res.render(nome do arquivo em handlebars)
 })
+
 
 //criando a rota para receber os valores do formulario. 
 
